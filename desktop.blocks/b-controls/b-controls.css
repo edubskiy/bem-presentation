@@ -34,12 +34,12 @@
     margin: 0 auto;
 }
 
-.b-controls__previous
+.b-controls__previous-icon
 {
     background: url(b-controls__icon_prev.png) no-repeat;
 }
 
-.b-controls__next
+.b-controls__next-icon
 {
     background: url(b-controls__icon_next.png) no-repeat;
 }

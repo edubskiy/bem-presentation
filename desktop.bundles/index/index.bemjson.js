@@ -11,6 +11,7 @@
     content:[
         {
             block: 'b-presentation',
+            js: true,
             content: [
                 {
                     block: 'b-presentations',
@@ -20,22 +21,15 @@
                             title: 'Smartphone\'s presentations',
                             slides: [
                                 {
-                                    id: 'slide-0',
-                                    header: 'Apple iPhone 4S 32Gb',
+                                    id: '0',
+                                    header: 'Presentation #1, slide #1',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b1004232748_img_id8368283111385023010.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: 'slide-1',
-                                    header: 'Samsung Galaxy Ace S5830',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b0206005907_img_id5777488190397681906.jpg',
-                                    footer: '',
-                                },
-                                {
-                                    id: 'slide-2',
-                                    header: 'HTC One S',
+                                    id: '1',
+                                    header: 'Presentation #1, slide #2',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
                                     footer: '',
@@ -47,22 +41,22 @@
                             title: 'Top-10 Web design tips',
                             slides: [
                                 {
-                                    id: 'slide-0',
-                                    header: 'Apple iPhone 4S 32Gb',
+                                    id: '0',
+                                    header: 'Presentation #2, slide #1',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b1004232748_img_id8368283111385023010.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: 'slide-1',
-                                    header: 'Samsung Galaxy Ace S5830',
+                                    id: '1',
+                                    header: 'Presentation #2, slide #2',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0206005907_img_id5777488190397681906.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: 'slide-2',
-                                    header: 'HTC One S',
+                                    id: '2',
+                                    header: 'Presentation #2, slide #3',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
                                     footer: '',
@@ -74,22 +68,22 @@
                             title: 'Top-10 Web design tips',
                             slides: [
                                 {
-                                    id: 'slide-0',
-                                    header: 'Apple iPhone 4S 32Gb',
+                                    id: '0',
+                                    header: 'Presentation #3, slide #1',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b1004232748_img_id8368283111385023010.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: 'slide-1',
-                                    header: 'Samsung Galaxy Ace S5830',
+                                    id: '1',
+                                    header: 'Presentation #3, slide #2',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0206005907_img_id5777488190397681906.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: 'slide-2',
-                                    header: 'HTC One S',
+                                    id: '2',
+                                    header: 'Presentation #3, slide #3',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
                                     footer: '',
@@ -124,9 +118,10 @@
                                     content: [
                                         {
                                             elem: 'inner',
+                                            mix: [{ elem: 'previous' }],
                                             content: [
                                                 {
-                                                    elem: 'previous',
+                                                    elem: 'previous-icon',
                                                     mix: [{ elem: 'item' }],
                                                     content: []
                                                 }
@@ -134,9 +129,10 @@
                                         },
                                         {
                                             elem: 'inner',
+                                            mix: [{ elem: 'next' }],
                                             content: [
                                                 {
-                                                    elem: 'next',
+                                                    elem: 'next-icon',
                                                     mix: [{ elem: 'item' }],
                                                     content: []
                                                 }

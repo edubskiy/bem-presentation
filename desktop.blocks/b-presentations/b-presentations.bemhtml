@@ -23,6 +23,9 @@ block b-presentations {
                     },
                     {
                         elem: 'slides',
+                        attrs: {
+                            'data-type': 'slides'
+                        },
                         content: []
                     }
 

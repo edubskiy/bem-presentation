@@ -22,3 +22,8 @@
 {
     display: none;
 }
+
+.b-presentations__header {
+    font-size: 18px;
+    font-weight: bold;
+}

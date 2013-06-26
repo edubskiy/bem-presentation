@@ -8,15 +8,9 @@ BEM.DOM.decl('b-presentation', {
     onSetMod : {
 
         'js' : function() {
-            /* ... */
+
         }
 
-    }
-
-}, {
-
-    live : function() {
-        /* ... */
     }
 
 });

@@ -16,7 +16,7 @@ BEM.DOM.decl('b-panel', {
 }, {
 
     live : function() {
-        /* ... */
+        
     }
 
 });
