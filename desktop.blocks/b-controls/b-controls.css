@@ -1,0 +1,45 @@
+.b-controls
+{
+    text-align: center;
+    width: 130px;
+    margin: 0 auto;
+}
+
+
+.b-controls__inner:hover {
+    box-shadow: 1px 1px 6px grey;
+}
+
+.b-controls__inner:first-child {
+    margin-left: 0;
+}
+
+.b-controls__inner {
+    margin-left: 10px;
+    padding: 10px;
+    width: 30px;
+    display: inline-block;
+    background: linear-gradient(#fff, #eee);
+    background: -webkit-linear-gradient(#fff, #eee);
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.07);
+    border: 1px solid darkgray;
+    cursor: pointer;
+}
+
+.b-controls__item {
+    width: 13px;
+    height: 13px;
+    margin: 0 auto;
+}
+
+.b-controls__previous
+{
+    background: url(b-controls__icon_prev.png) no-repeat;
+}
+
+.b-controls__next
+{
+    background: url(b-controls__icon_next.png) no-repeat;
+}

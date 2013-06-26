@@ -1,0 +1,11 @@
+.b-slides
+{
+    height: 100%;
+    padding-bottom: -50px;
+    overflow: hidden;
+}
+
+.b-slides__window
+{
+    min-height: 250px;
+}

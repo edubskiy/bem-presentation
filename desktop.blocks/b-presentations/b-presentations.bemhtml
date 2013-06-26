@@ -1,0 +1,67 @@
+block b-presentations {
+    js: true
+
+    attrs: {
+        'data-length': this.ctx.presentations.length
+    }
+
+    content: {
+        var content = [];
+
+        this.ctx.presentations.forEach(function(thisPresentation) {
+
+            var presentation = {
+                attrs: {
+                    'data-slides-count': thisPresentation.slides.length,
+                    'data-id': thisPresentation.id
+                },
+                elem: thisPresentation.id,
+                content: [
+                    {
+                        elem: 'title',
+                        content: thisPresentation.title
+                    },
+                    {
+                        elem: 'slides',
+                        content: []
+                    }
+
+                ],
+                mix: [{ elem: 'preview' }],
+                slides: []
+            };
+
+            thisPresentation.slides.forEach(function(item) {
+
+                // @todo set background for slide if it has one..
+
+                presentation.content[1].content.push({
+                    elem: 'item',
+                    mix: [{ elem: item.id }],
+                    attrs: {
+                        'data-id': item.id
+                    },
+                    content: [
+                        {
+                            elem: 'header',
+                            content: item.header
+                        },
+                        {
+                            elem: 'content',
+                            content: item.content
+                        },
+                        {
+                            elem: 'footer',
+                            content: item.footer
+                        }
+                    ]
+                })
+            })
+
+            content.push(presentation);
+            content.push(' ');
+        });
+
+        return content;
+    }
+}

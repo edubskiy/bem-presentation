@@ -1,0 +1,53 @@
+block b-slides {
+
+    js: true
+
+    tag: 'div'
+
+//    'data-length': this.ctx.slides.length
+
+//    attrs: {
+//        'data-length': this.ctx.slides.length
+//    }
+
+
+//    content: {
+//        var content = [];
+//
+//        this.ctx.slides.forEach(function(item){
+//
+//            // @todo set background for slide if it has one..
+//
+//            content.push({
+//                elem: 'item',
+//                mix: [{ elem: item.id }],
+//                attrs: {
+//                    'data-id': item.id
+//                },
+//                content: [
+//                    {
+//                        elem: 'header',
+//                        content: item.header
+//                    },
+//                    {
+//                        elem: 'content',
+//                        content: item.content
+//                    },
+//                    {
+//                        elem: 'footer',
+//                        content: item.footer
+//                    }
+//                ]
+//            });
+//
+//            content.push(' ');
+//
+//        });
+//
+//        return content;
+//    }
+
+    elem item, tag: 'div'
+
+    elem title, tag: 'h3'
+}

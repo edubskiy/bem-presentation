@@ -1,0 +1,24 @@
+.b-presentations
+{
+    display:inline-block;
+    width: 30%;
+    vertical-align: top;
+    overflow: scroll;
+//    max-height: 100%;
+}
+
+.b-presentations__preview:first-child
+{
+    margin-top: 0;
+}
+
+.b-presentations__preview
+{
+    min-height: 73px;
+    margin-top: 10px;
+}
+
+.b-presentations__slides
+{
+    display: none;
+}
