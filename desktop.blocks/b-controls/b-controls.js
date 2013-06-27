@@ -12,6 +12,11 @@ BEM.DOM.decl('b-controls', {
      */
     _Slides: null,
 
+    /**
+     * Gets presentation block
+     *
+     * @returns {BEM}
+     */
     getPresentation: function() {
         return this.findBlockOutside('b-presentation');
     },
@@ -38,16 +43,6 @@ BEM.DOM.decl('b-controls', {
                     this.nextSlide();
                 }
             });
-
-            this.channel('slide').on({
-                // Ставим кнопкам моду disabled (приходит от блока slides)
-                'last': function() {
-
-                },
-                'first': function() {
-
-                }
-            })
         }
     },
 

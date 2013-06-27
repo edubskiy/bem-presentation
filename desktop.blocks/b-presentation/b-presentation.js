@@ -45,13 +45,13 @@ BEM.DOM.decl('b-presentation', {
         return true;
     },
 
-
     onSetMod : {
 
         'js' : function() {
             var t = this,
-                typedSlides = [],
-                delay = (function(){
+                typedSlides = [],// Typed slides on screen
+                controls = t.findBlockInside('b-controls');
+                delay = (function(){ // Delayed function to capture user typing
                     var timer = 0;
                     return function(callback, ms){
                         clearTimeout (timer);
@@ -70,7 +70,24 @@ BEM.DOM.decl('b-presentation', {
                 }
             });
 
-            // left and right keys navigation
+            this.channel('slide').on({
+                // Ставим кнопкам моду disabled (приходит от блока slides)
+                'last': function() {
+                    // disabling go right button
+                    controls.setMod(controls.elem('next'),'disabled', 'yes');
+                },
+                'first': function() {
+                    // disable go left button
+                    controls.setMod(controls.elem('previous'),'disabled', 'yes');
+                },
+                'change': function() {
+                    // enabling all buttons
+                    controls.delMod(controls.elem('previous'),'disabled');
+                    controls.delMod(controls.elem('next'),'disabled');
+                }
+            })
+
+            // left and right keys navigation on screen
             t.bindToDoc('keydown', function(e) {
                 typedSlides.push(e.keyCode);
                 delay(function() {

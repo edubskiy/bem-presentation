@@ -43,3 +43,21 @@
 {
     background: url(b-controls__iconglyph_next.png) no-repeat;
 }
+
+.b-controls__previous_disabled_yes:hover {
+    box-shadow: none;
+}
+
+.b-controls__previous_disabled_yes {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.b-controls__next_disabled_yes:hover {
+    box-shadow: none;
+}
+
+.b-controls__next_disabled_yes {
+    opacity: 0.5;
+    cursor: default;
+}
