@@ -1,4 +1,4 @@
-Welcome presentation slides player!
+Welcome to presentation's player!
 
 After set up instruction point your browser to http://localhost:8080/desktop.bundles/index/index.html and you will
 see the player and slides. It is completely straight forward
