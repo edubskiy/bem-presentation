@@ -6,6 +6,7 @@
 BEM.DOM.decl('b-presentations', {
 
     broadcastPresentation: function(presentation) {
+        this.channel('slide').trigger('change');
         // Сообщаем о том, что нужно показать презентацию
         this.channel('presentation').trigger('show', {
             presentation: presentation
