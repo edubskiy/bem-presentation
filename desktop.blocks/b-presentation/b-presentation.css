@@ -3,17 +3,3 @@
     width: 755px;
     height: 300px;
 }
-
-.b-presentations__preview {
-    background: white;
-    border: 1px solid black;
-    margin-right: 15px;
-    padding: 10px;
-    min-height: 100px;
-    overflow: hidden;
-    max-height: 100px;
-}
-
-.b-presentations__preview:hover {
-    opacity: 0.8;
-}

@@ -18,89 +18,87 @@
                     presentations: [
                         {
                             id: 'presentation-1',
-                            title: 'Smartphone\'s presentations',
+                            title: 'Kawasiki Method',
                             slides: [
                                 {
                                     id: '1',
-                                    header: 'Presentation #1, slide #1',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b1004232748_img_id8368283111385023010.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_1/slide-1.jpg'
                                 },
                                 {
                                     id: '2',
-                                    header: 'Presentation #1, slide #2',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_1/slide-2.jpg'
+                                },
+                                {
+                                    id: '3',
+                                    image: '../../presentations/presentation_1/slide-3.jpg'
+                                },
+                                {
+                                    id: '4',
+                                    image: '../../presentations/presentation_1/slide-4.jpg'
+                                },
+                                {
+                                    id: '5',
+                                    image: '../../presentations/presentation_1/slide-5.jpg'
+                                },
+                                {
+                                    id: '6',
+                                    image: '../../presentations/presentation_1/slide-6.jpg'
                                 }
                             ]
                         },
                         {
                             id: 'presentation-2',
-                            title: 'Top-10 Web design tips',
+                            title: 'Steve Jobs Method',
                             slides: [
                                 {
                                     id: '1',
-                                    header: 'Presentation #2, slide #1',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b1004232748_img_id8368283111385023010.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_2/slide-1.jpg'
                                 },
                                 {
                                     id: '2',
-                                    header: 'Presentation #2, slide #2',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b0206005907_img_id5777488190397681906.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_2/slide-2.jpg'
                                 },
                                 {
                                     id: '3',
-                                    header: 'Presentation #2, slide #3',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_2/slide-3.jpg'
+                                },
+                                {
+                                    id: '4',
+                                    image: '../../presentations/presentation_2/slide-4.jpg'
+                                },
+                                {
+                                    id: '5',
+                                    image: '../../presentations/presentation_2/slide-5.jpg'
                                 }
                             ]
                         },
                         {
                             id: 'presentation-3',
-                            title: 'Top-10 Web design tips',
+                            title: 'Godin Method',
                             slides: [
                                 {
                                     id: '1',
-                                    header: 'Presentation #3, slide #1',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b1004232748_img_id8368283111385023010.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_3/slide-1.jpg'
                                 },
                                 {
                                     id: '2',
-                                    header: 'Presentation #3, slide #2',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b0206005907_img_id5777488190397681906.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_3/slide-2.jpg'
                                 },
                                 {
                                     id: '3',
-                                    header: 'Presentation #3, slide #3',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_3/slide-3.jpg'
                                 },
                                 {
                                     id: '4',
-                                    header: 'Presentation #3, slide #4',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b0206005907_img_id5777488190397681906.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_3/slide-4.jpg'
                                 },
                                 {
                                     id: '5',
-                                    header: 'Presentation #3, slide #5',
-                                    content: 'Content goes here',
-                                    background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
-                                    footer: '',
+                                    image: '../../presentations/presentation_3/slide-5.jpg'
+                                },
+                                {
+                                    id: '6',
+                                    image: '../../presentations/presentation_3/slide-6.jpg'
                                 }
                             ]
                         },

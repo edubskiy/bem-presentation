@@ -19,7 +19,10 @@ block b-presentations {
                 content: [
                     {
                         elem: 'title',
-                        content: thisPresentation.title
+                        content: [],
+                        attrs: {
+                            'src': thisPresentation.slides[0].image
+                        }
                     },
                     {
                         elem: 'slides',
@@ -35,29 +38,19 @@ block b-presentations {
             };
 
             thisPresentation.slides.forEach(function(item) {
-
-                // @todo set background for slide if it has one..
-
                 presentation.content[1].content.push({
                     elem: 'item',
                     mix: [{ elem: item.id }],
                     attrs: {
                         'data-id': item.id
                     },
-                    content: [
-                        {
-                            elem: 'header',
-                            content: item.header
+                    content: {
+                        elem: 'image',
+                        attrs: {
+                            'src': item.image
                         },
-                        {
-                            elem: 'content',
-                            content: item.content
-                        },
-                        {
-                            elem: 'footer',
-                            content: item.footer
-                        }
-                    ]
+                        content: []
+                    }
                 })
             })
 
@@ -67,4 +60,8 @@ block b-presentations {
 
         return content;
     }
+
+    elem image, tag: 'img'
+
+    elem title, tag: 'img'
 }

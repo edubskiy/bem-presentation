@@ -7,5 +7,6 @@
 
 .b-slides__window
 {
-    min-height: 250px;
+    height: 390px;
+    width: 499px;
 }
