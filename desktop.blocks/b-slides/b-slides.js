@@ -39,17 +39,7 @@ BEM.DOM.decl('b-slides', {
 
             this.channel('slide').on({
                 // Броадкастим следующий и предыдущий слайд
-                'next': function() {
-                    var Presentation = t.getPresentation();
-                    t.showPresentation(Presentation.getSlideId() + 1, Presentation.getId());
-                },
-                'prev': function() {
-                    var Presentation = t.getPresentation();
-                    t.showPresentation(Presentation.getSlideId() - 1, Presentation.getId());
-                },
                 'goto': function(e, data) {
-                    console.log("goto action for slide id");
-                    console.log(data);
                     t.showPresentation(data.slideId, t.getPresentation().getId());
                 }
             })

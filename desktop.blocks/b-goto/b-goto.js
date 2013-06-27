@@ -44,16 +44,11 @@ BEM.DOM.decl('b-goto', {
 
             t.channel('slide').on({
                 // Броадкастим следующий и предыдущий слайд
-                'next': function() {
-                    t.elem('current-slide').val(t.getCurrentSlideId() + 1);
-                },
-                'prev': function() {
-                    t.elem('current-slide').val(t.getCurrentSlideId() - 1);
+                'goto': function(e, data) {
+                    t.elem('current-slide').val(data.slideId);
                 },
             })
-
         }
-
     }
 
 }, {});

@@ -54,18 +54,20 @@ BEM.DOM.decl('b-controls', {
         return this._Slides;
     },
 
-    nextSlide: function() {
-        var Presentation = this.getPresentation();
-        if (Presentation.canShowSlide(Presentation.getSlideId() + 1)) {
-            this.channel('slide').trigger('next');
+    gotoSlide: function(slideId) {
+        if (this.getPresentation().canShowSlide(slideId)) {
+            this.channel('slide').trigger('goto', {
+                slideId: slideId
+            });
         }
     },
 
+    nextSlide: function() {
+        this.gotoSlide(this.getPresentation().getSlideId() + 1);
+    },
+
     prevSlide: function() {
-        var Presentation = this.getPresentation();
-        if (Presentation.canShowSlide(Presentation.getSlideId() - 1)) {
-            this.channel('slide').trigger('prev');
-        }
+        this.gotoSlide(this.getPresentation().getSlideId() - 1);
     }
 
 }, {});
