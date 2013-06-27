@@ -3,6 +3,7 @@
     width: 20%;
     vertical-align: top;
     float: left;
+    padding-left: 7px;
 }
 
 .b-presentations__preview:first-child
