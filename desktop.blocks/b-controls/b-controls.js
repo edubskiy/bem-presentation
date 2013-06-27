@@ -7,9 +7,16 @@ BEM.DOM.decl('b-controls', {
 
     _Slides: null,
 
+    getPresentation: function() {
+        return this.findBlockOutside('b-presentation');
+    },
+
     onSetMod : {
 
         'js' : function() {
+            var t = this;
+
+            // left and right buttons navigation
             this
                 .bindTo('next', 'click', function() {
                     this.nextSlide();
@@ -18,6 +25,7 @@ BEM.DOM.decl('b-controls', {
                     this.prevSlide();
                 });
 
+            // left and right keys navigation
             this.bindToDoc('keydown', function(e) {
                 if (e.keyCode == 37) {
                     this.prevSlide();
@@ -25,6 +33,16 @@ BEM.DOM.decl('b-controls', {
                     this.nextSlide();
                 }
             });
+
+            this.channel('slide').on({
+                // Ставим кнопкам моду disabled (приходит от блока slides)
+                'last': function() {
+
+                },
+                'first': function() {
+
+                }
+            })
         }
     },
 
@@ -37,25 +55,19 @@ BEM.DOM.decl('b-controls', {
     },
 
     nextSlide: function() {
-        this.getSlidesBlock().trigger('show:slide:next');
+        var Presentation = this.getPresentation();
+        if (Presentation.canShowSlide(Presentation.getSlideId() + 1)) {
+            this.channel('slide').trigger('next');
+        }
     },
 
     prevSlide: function() {
-        this.getSlidesBlock().trigger('show:slide:prev');
+        var Presentation = this.getPresentation();
+        if (Presentation.canShowSlide(Presentation.getSlideId() - 1)) {
+            this.channel('slide').trigger('prev');
+        }
     }
 
-}, {
-
-//    live : function() {
-//        this
-//            .liveBindTo('next', 'click', function() {
-//                this.nextSlide();
-//            })
-//            .liveBindTo('previous', 'click', function() {
-//                this.prevSlide();
-//            });
-//    }
-
-});
+}, {});
 
 })();

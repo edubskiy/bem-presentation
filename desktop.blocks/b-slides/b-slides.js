@@ -5,11 +5,11 @@
 
 BEM.DOM.decl('b-slides', {
 
-    presentationId: false,
-    slideId: false,
-    presentationSlidesCount: false,
-
     presentations: {},
+
+    getPresentation: function() {
+        return this.findBlockOutside('b-presentation');
+    },
 
     showPresentation: function(slideId, presentationId) {
         // Проверяем нет ли в кэше
@@ -18,59 +18,41 @@ BEM.DOM.decl('b-slides', {
                                      .findBlockInside('b-presentations')
         }
 
-        var Presentation = this.presentations.elem(presentationId),
-            firstSlide = Presentation.find("[data-id='" + slideId + "']").clone();
+        var blockPresentation = this.getPresentation(),
+            presentation = this.presentations.elem(presentationId),
+            firstSlide = presentation.find("[data-id='" + slideId + "']").clone();
 
         // Показываем первый слайд
         this.elem('window').html(firstSlide);
 
         // Запоминаем id презентации и слайда для панели управления
         // (в том числе чтобы уменьшить обращения к DOM)
-        this.presentationId = presentationId;
-        this.slideId = slideId;
-        this.presentationSlidesCount = Presentation.data('slides-count');
-    },
-
-    canShowSlide: function(slideId) {
-        if ( ! this.presentationId) {
-            return false;
-        }
-        if (slideId < 0 || slideId > this.presentationSlidesCount - 1) {
-            return false;
-        }
-        return true;
+        blockPresentation.setId(presentationId);
+        blockPresentation.setSlideId(slideId);
+        blockPresentation.setSlidesCount(presentation.data('slides-count'));
     },
 
     onSetMod : {
 
         'js' : function() {
+            var t = this;
 
-            // initial presentation choice
-            this.on('show:presentation', function(e, data) {
-                this.showPresentation(0, data.presentationId);
-            });
-
-            // for goto slide
-            this.on('show:slide', function(e, data) {
-                if (this.canShowSlide(data.slideId)) {
-                    this.showPresentation(data.slideId, this.presentationId);
+            this.channel('slide').on({
+                // Броадкастим следующий и предыдущий слайд
+                'next': function() {
+                    var Presentation = t.getPresentation();
+                    t.showPresentation(Presentation.getSlideId() + 1, Presentation.getId());
+                },
+                'prev': function() {
+                    var Presentation = t.getPresentation();
+                    t.showPresentation(Presentation.getSlideId() - 1, Presentation.getId());
+                },
+                'goto': function(e, data) {
+                    console.log("goto action for slide id");
+                    console.log(data);
+                    t.showPresentation(data.slideId, t.getPresentation().getId());
                 }
-            });
-
-            this.on('show:slide:next', function(e) {
-                var slideId = this.slideId + 1;
-                if (this.canShowSlide(slideId)) {
-                    this.showPresentation(slideId, this.presentationId);
-                }
-            });
-
-            this.on('show:slide:prev', function(e) {
-                var slideId = this.slideId - 1;
-                if (this.canShowSlide(slideId)) {
-                    this.showPresentation(slideId, this.presentationId);
-                }
-
-            });
+            })
         }
     },
 

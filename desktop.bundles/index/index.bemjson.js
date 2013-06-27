@@ -21,14 +21,14 @@
                             title: 'Smartphone\'s presentations',
                             slides: [
                                 {
-                                    id: '0',
+                                    id: '1',
                                     header: 'Presentation #1, slide #1',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b1004232748_img_id8368283111385023010.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: '1',
+                                    id: '2',
                                     header: 'Presentation #1, slide #2',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
@@ -41,21 +41,21 @@
                             title: 'Top-10 Web design tips',
                             slides: [
                                 {
-                                    id: '0',
+                                    id: '1',
                                     header: 'Presentation #2, slide #1',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b1004232748_img_id8368283111385023010.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: '1',
+                                    id: '2',
                                     header: 'Presentation #2, slide #2',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0206005907_img_id5777488190397681906.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: '2',
+                                    id: '3',
                                     header: 'Presentation #2, slide #3',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
@@ -68,22 +68,36 @@
                             title: 'Top-10 Web design tips',
                             slides: [
                                 {
-                                    id: '0',
+                                    id: '1',
                                     header: 'Presentation #3, slide #1',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b1004232748_img_id8368283111385023010.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: '1',
+                                    id: '2',
                                     header: 'Presentation #3, slide #2',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0206005907_img_id5777488190397681906.jpg',
                                     footer: '',
                                 },
                                 {
-                                    id: '2',
+                                    id: '3',
                                     header: 'Presentation #3, slide #3',
+                                    content: 'Content goes here',
+                                    background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
+                                    footer: '',
+                                },
+                                {
+                                    id: '4',
+                                    header: 'Presentation #3, slide #4',
+                                    content: 'Content goes here',
+                                    background_image: 'http://mdata.yandex.net/i?path=b0206005907_img_id5777488190397681906.jpg',
+                                    footer: '',
+                                },
+                                {
+                                    id: '5',
+                                    header: 'Presentation #3, slide #5',
                                     content: 'Content goes here',
                                     background_image: 'http://mdata.yandex.net/i?path=b0229115752_img_id5362588736801424341.jpg',
                                     footer: '',
@@ -110,7 +124,18 @@
                                 {
                                     block: 'b-goto',
                                     content: [
-                                        'Block Goto'
+                                        {
+                                            elem: 'current-slide',
+                                            content: []
+                                        },
+                                        {
+                                            elem: 'slide-separator',
+                                            content: '/'
+                                        },
+                                        {
+                                            elem: 'total-slides',
+                                            content: []
+                                        }
                                     ]
                                 },
                                 {

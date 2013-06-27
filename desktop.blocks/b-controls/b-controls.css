@@ -7,7 +7,7 @@
 
 
 .b-controls__inner:hover {
-    box-shadow: 1px 1px 6px grey;
+    box-shadow: 0px 1px 5px grey;
 }
 
 .b-controls__inner:first-child {
@@ -15,14 +15,14 @@
 }
 
 .b-controls__inner {
-    margin-left: 10px;
-    padding: 10px;
+    margin-left: 2px;
+    padding: 8px;
     width: 30px;
     display: inline-block;
     background: linear-gradient(#fff, #eee);
     background: -webkit-linear-gradient(#fff, #eee);
     color: #333;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 1px 0 rgba(0,0,0,.07);
     border: 1px solid darkgray;
     cursor: pointer;

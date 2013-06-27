@@ -1,0 +1,9 @@
+block b-goto {
+    js: true
+
+    tag: 'div'
+
+    elem current-slide, tag: 'input'
+    elem slide-separator, tag: 'span'
+    elem total-slides, tag: 'span'
+}

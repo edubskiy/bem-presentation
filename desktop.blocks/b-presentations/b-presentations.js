@@ -5,31 +5,31 @@
 
 BEM.DOM.decl('b-presentations', {
 
+    broadcastPresentation: function(presentation) {
+        // Сообщаем о том, что нужно показать презентацию
+        this.channel('presentation').trigger('show', {
+            presentation: presentation
+        });
+    },
+
     onSetMod : {
 
         'js' : function() {
-            /* ... */
+            var t = this;
+
+            // Загрузка первой презентации
+            t.broadcastPresentation(t.domElem.children()[0]);
+
+            // Выбор презентации
+            t.bindTo('preview', 'click', function(e) {
+                if (e.data) {
+                    t.broadcastPresentation(e.data.domElem[0]);
+                }
+            });
         }
 
     }
 
-}, {
-
-    live : function() {
-        this.liveBindTo('preview', 'click', function(e) {
-            var presentations = this.findBlockOutside('b-presentation')
-                .findBlockInside('b-slides');
-
-            // Сообщаем о том, что нужно показать презентацию
-            if (e.data) {
-                var presentationId = e.data.domElem[0].getAttribute('data-id');
-                presentations.trigger('show:presentation', {
-                    presentationId: presentationId
-                })
-            }
-        });
-    }
-
-});
+}, {});
 
 })();

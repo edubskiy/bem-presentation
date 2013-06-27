@@ -1,4 +1,17 @@
 .b-goto
 {
+    margin-top: 4px;
+    margin-right: 16px;
     float: right;
+    font-size: 14px;
+}
+
+.b-goto__current-slide {
+    width: 33px;
+    margin-right: 5px;
+    padding: 3px;
+}
+
+.b-goto__total-slides {
+    margin-left: 5px;
 }
