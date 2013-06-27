@@ -78,15 +78,15 @@ BEM.DOM.decl('b-presentation', {
                    for (var i = 0, typedLength = typedSlides.length; i < typedLength; i++) {
                        slideId += String.fromCharCode(typedSlides[i])
                    }
+                   typedSlides = [];
                    slideId = parseInt(slideId);
                    if (!isNaN(slideId) && t.canShowSlide(slideId)) { // and can show slide
                        // clear typedSlides for next input
-                       typedSlides = [];
                        t.channel('slide').trigger('goto', {
                            slideId: slideId
                        });
                    }
-                }, 1000);
+                }, 500);
             });
         }
     }
