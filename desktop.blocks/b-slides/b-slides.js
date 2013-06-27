@@ -12,6 +12,8 @@ BEM.DOM.decl('b-slides', {
     },
 
     showPresentation: function(slideId, presentationId) {
+        var t = this;
+
         // Проверяем нет ли в кэше
         if ($.isEmptyObject(this.presentations)) {
             this.presentations = this.findBlockOutside('b-presentation')
@@ -22,8 +24,12 @@ BEM.DOM.decl('b-slides', {
             presentation = this.presentations.elem(presentationId),
             firstSlide = presentation.find("[data-id='" + slideId + "']").clone();
 
-        // Показываем первый слайд
-        this.elem('window').html(firstSlide);
+        t.elem('window').fadeIn('fast', function() {
+            // Показываем первый слайд
+            $(this).hide()
+                   .html(firstSlide)
+                   .fadeIn('fast');
+        });
 
         // Запоминаем id презентации и слайда для панели управления
         // (в том числе чтобы уменьшить обращения к DOM)

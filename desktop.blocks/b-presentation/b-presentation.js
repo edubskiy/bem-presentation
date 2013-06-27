@@ -49,7 +49,15 @@ BEM.DOM.decl('b-presentation', {
     onSetMod : {
 
         'js' : function() {
-            var t = this;
+            var t = this,
+                typedSlides = [],
+                delay = (function(){
+                    var timer = 0;
+                    return function(callback, ms){
+                        clearTimeout (timer);
+                        timer = setTimeout(callback, ms);
+                    };
+                })();
 
             // Подписываем на показы презентации
             this.channel('presentation').on({
@@ -60,6 +68,25 @@ BEM.DOM.decl('b-presentation', {
                         t.findBlockInside('b-goto').updateGoto(1, data.presentation.getAttribute('data-slides-count'));
                     }
                 }
+            });
+
+            // left and right keys navigation
+            t.bindToDoc('keydown', function(e) {
+                typedSlides.push(e.keyCode);
+                delay(function() {
+                   var slideId = '';
+                   for (var i = 0, typedLength = typedSlides.length; i < typedLength; i++) {
+                       slideId += String.fromCharCode(typedSlides[i])
+                   }
+                   slideId = parseInt(slideId);
+                   if (!isNaN(slideId) && t.canShowSlide(slideId)) { // and can show slide
+                       // clear typedSlides for next input
+                       typedSlides = [];
+                       t.channel('slide').trigger('goto', {
+                           slideId: slideId
+                       });
+                   }
+                }, 1000);
             });
         }
     }
