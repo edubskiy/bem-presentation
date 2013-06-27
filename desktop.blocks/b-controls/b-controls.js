@@ -5,6 +5,11 @@
 
 BEM.DOM.decl('b-controls', {
 
+    /**
+     * Slides block
+     *
+     * @private
+     */
     _Slides: null,
 
     getPresentation: function() {
