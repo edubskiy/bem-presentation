@@ -1,9 +1,7 @@
 .b-presentations
 {
-//    display:inline-block;
     width: 20%;
     vertical-align: top;
-    overflow: scroll;
     float: left;
 }
 
