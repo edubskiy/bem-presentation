@@ -133,6 +133,10 @@
                                         {
                                             elem: 'total-slides',
                                             content: []
+                                        },
+                                        {
+                                            elem: 'fullscreen',
+                                            content: []
                                         }
                                     ]
                                 },

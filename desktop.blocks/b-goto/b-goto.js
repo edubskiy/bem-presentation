@@ -5,6 +5,30 @@
 
 BEM.DOM.decl('b-goto', {
 
+    requestFullScreen: function(element) {
+        // Supports most browsers and their versions.
+        var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+        if (requestMethod) { // Native full screen.
+            requestMethod.call(element);
+        } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+            var wscript = new ActiveXObject("WScript.Shell");
+            if (wscript !== null) {
+                wscript.SendKeys("{F11}");
+            }
+        }
+    },
+
+    cancelFullscreen: function(){
+        if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+        }
+    },
+
     updateGoto: function(currentSlide, totalSlides) {
         // Обновляем значение текущего слайда
         this.elem('current-slide').val(currentSlide);
@@ -33,6 +57,21 @@ BEM.DOM.decl('b-goto', {
 
         'js' : function() {
             var t = this;
+
+            t.bindTo('fullscreen', 'click', function(e) {
+                var content = this.findBlockOutside('b-content'),
+                    slides = content.findBlockInside('b-slides');
+
+                if (content.hasMod('fullscreen', 'active')) {
+                    this.cancelFullscreen();
+                } else {
+                    this.requestFullScreen(content.domElem[0]);
+                }
+
+                content.toggleMod('fullscreen', 'active');
+                slides.toggleMod('fullscreen', 'active');
+                this.toggleMod(this.elem('fullscreen'), 'fullscreen', 'active');
+            })
 
             // left and right keys navigation
             t.bindToDoc('keydown', function(e) {

@@ -6,4 +6,5 @@ block b-goto {
     elem current-slide, tag: 'input'
     elem slide-separator, tag: 'span'
     elem total-slides, tag: 'span'
+    elem fullscreen, tag: 'div'
 }

@@ -1,12 +1,9 @@
 .b-slides
 {
     height: 100%;
-    padding-bottom: -50px;
     overflow: hidden;
 }
 
-.b-slides__window
-{
-    height: 390px;
-    width: 499px;
+.b-slides_fullscreen_active {
+    height: 94%;
 }

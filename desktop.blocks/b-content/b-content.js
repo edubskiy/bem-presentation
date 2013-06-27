@@ -7,6 +7,10 @@ BEM.DOM.decl('b-content', {
 
     onSetMod : {
 
+        'active': function() {
+            console.log('trigger active');
+        },
+
         'js' : function() {
             /* ... */
         }
@@ -14,10 +18,6 @@ BEM.DOM.decl('b-content', {
     }
 
 }, {
-
-    live : function() {
-        /* ... */
-    }
 
 });
 

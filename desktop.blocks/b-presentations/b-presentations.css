@@ -1,9 +1,10 @@
 .b-presentations
 {
-    display:inline-block;
+//    display:inline-block;
     width: 20%;
     vertical-align: top;
     overflow: scroll;
+    float: left;
 }
 
 .b-presentations__preview:first-child

@@ -1,7 +1,7 @@
 .b-goto
 {
-    margin-top: 4px;
-    margin-right: 16px;
+    margin-top: 8px;
+    margin-right: 6px;
     float: right;
     font-size: 14px;
 }
@@ -14,4 +14,24 @@
 
 .b-goto__total-slides {
     margin-left: 5px;
+}
+
+.b-goto__fullscreen:hover {
+    opacity: 0.8;
+}
+
+.b-goto__fullscreen {
+    margin-left: 15px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: url(b-goto__iconglyph_full.png) no-repeat;
+    cursor: pointer;
+    background-size: 22px;
+}
+
+.b-goto__fullscreen_fullscreen_active {
+    background: url(b-goto__iconglyph_exit.png) no-repeat;
+    background-size: 22px;
 }
