@@ -5,7 +5,14 @@
 
 BEM.DOM.decl('b-presentations', {
 
+    /**
+     * Broadcasts new presentation on specific channel
+     * (which makes it appear)
+     *
+     * @param {BEM} presentation
+     */
     broadcastPresentation: function(presentation) {
+        // Переводим все контролы в исходное состояние
         this.channel('slide').trigger('change');
         // Сообщаем о том, что нужно показать презентацию
         this.channel('presentation').trigger('show', {
