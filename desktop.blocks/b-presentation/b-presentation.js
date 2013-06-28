@@ -89,21 +89,25 @@ BEM.DOM.decl('b-presentation', {
 
             // left and right keys navigation on screen
             t.bindToDoc('keydown', function(e) {
-                typedSlides.push(e.keyCode);
-                delay(function() {
-                   var slideId = '';
-                   for (var i = 0, typedLength = typedSlides.length; i < typedLength; i++) {
-                       slideId += String.fromCharCode(typedSlides[i])
-                   }
-                   typedSlides = [];
-                   slideId = parseInt(slideId);
-                   if (!isNaN(slideId) && t.canShowSlide(slideId)) { // and can show slide
-                       // clear typedSlides for next input
-                       t.channel('slide').trigger('goto', {
-                           slideId: slideId
-                       });
-                   }
-                }, 500);
+                // check if we not inside input Goto texbox
+                if (!$(e.target).hasClass('b-goto__current-slide')) {
+                    typedSlides.push(e.keyCode);
+                    delay(function() {
+                        var slideId = '';
+                        for (var i = 0, typedLength = typedSlides.length; i < typedLength; i++) {
+                            slideId += String.fromCharCode(typedSlides[i])
+                        }
+                        typedSlides = [];
+                        slideId = parseInt(slideId);
+                        if (!isNaN(slideId) && t.canShowSlide(slideId)) { // and can show slide
+                            // clear typedSlides for next input
+                            t.channel('slide').trigger('goto', {
+                                slideId: slideId
+                            });
+                        }
+                    }, 500);
+                }
+
             });
         }
     }
