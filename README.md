@@ -3,13 +3,15 @@ Welcome to presentation's player!
 After set up instruction point your browser to http://localhost:8080/desktop.bundles/index/index.html and you will
 see the player and slides. It is completely straight forward
 
-here are some functions"
+here are some functions:
  - left and right arrows for navigation
  - type slide number on the screen or in the input box
- - use fullscreen button to enter fullscreen mode (hit it one more time or type ESC to exit it)
+ - use full display button to enter fullscreen mode (hit it one more time or type ESC to exit it)
 
-I decided not to include autoplay button in this release, may be in future. Right now you need to hardcode
-the presentations inside your block. In future slides will be rendered automatically.
+I decided not to include autoplay button in this release, may be in future. Future releases may include progressbar and slide's previews
+
+Right now you need to hardcode the presentations inside your block. In future slides will be rendered automatically.
+
 
 If you have any suggestions or find any bugs feel free to fork and contribute or write me at e.dubskiy@gmail.com
 
