@@ -111,7 +111,20 @@
                             block: 'b-slides',
                             content: [
                                 {
-                                    block: 'b-slides__window',
+                                    elem: 'overlay',
+                                    content: [
+                                        {
+                                            elem: 'layer',
+                                            mix: [{ mods : { 'mod': 'left' }}],
+                                        },
+                                        {
+                                            elem: 'layer',
+                                            mix: [{ mods : { 'mod': 'right' }}],
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem: 'window',
                                 }
                             ],
 

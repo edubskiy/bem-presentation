@@ -66,13 +66,24 @@ BEM.DOM.decl('b-slides', {
     onSetMod : {
 
         'js' : function() {
-            var t = this;
-            this.channel('slide').on({
+            var t = this,
+                bPresentation = t.getPresentation(),
+                bControls = bPresentation.findBlockInside('b-controls');
+
+            t.channel('slide').on({
                 // Броадкастим следующий и предыдущий слайд
                 'goto': function(e, data) {
-                    t.showPresentation(data.slideId, t.getPresentation().getId());
+                    t.showPresentation(data.slideId, bPresentation.getId());
                 }
-            })
+            });
+
+            t.bindTo('layer', 'click', function(e) {
+                if (t.hasMod(e.data.domElem, 'mod', 'right')) {
+                    bControls.nextSlide();
+                } else if (t.hasMod(e.data.domElem, 'mod', 'left')) {
+                    bControls.prevSlide();
+                }
+            });
         }
     },
 

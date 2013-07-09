@@ -88,7 +88,7 @@ BEM.DOM.decl('b-goto', {
                 }
             });
 
-            t.bindToDoc('webkitfullscreenchange mozfullscreenchange fullscreenchange',function(){
+            t.bindToDoc('webkitfullscreenchange mozfullscreenchange fullscreenchange',function() {
                 if ( ! fullscreenFiredByClick) {
                     this.toggleFullScreenMode();
                 }
