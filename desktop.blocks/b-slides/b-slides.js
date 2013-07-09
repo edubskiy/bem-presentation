@@ -5,8 +5,6 @@
 
 BEM.DOM.decl('b-slides', {
 
-    presentations: {},
-
     getPresentation: function() {
         return this.findBlockOutside('b-presentation');
     },
@@ -18,39 +16,49 @@ BEM.DOM.decl('b-slides', {
      * @param {string} presentationId
      */
     showPresentation: function(slideId, presentationId) {
-        var t = this;
+        var t = this,
+            bPresentation = t.getPresentation(),
+            currentPresentation = bPresentation.findBlockInside('b-presentations').elem(presentationId),
+            slidesCount = currentPresentation.data('slides-count'),
+            slides = currentPresentation.find("[data-type='slides']").clone(),
+            prevSlideId = bPresentation.getSlideId();
 
-        // Проверяем нет ли в кэше
-        if ($.isEmptyObject(this.presentations)) {
-            this.presentations = this.findBlockOutside('b-presentation')
-                                     .findBlockInside('b-presentations')
+        // if we need to switch between presentations
+        if (presentationId != bPresentation.getId()) {
+            // append slides to presentation window
+            t.elem('window').html(slides);
         }
 
-        var blockPresentation = this.getPresentation(),
-            presentation = this.presentations.elem(presentationId),
-            slidesCount = presentation.data('slides-count'),
-            firstSlide = presentation.find("[data-id='" + slideId + "']").clone();
-
-        t.elem('window').fadeIn('fast', function() {
-            // Показываем первый слайд
-            $(this).hide()
-                   .html(firstSlide)
-                   .fadeIn('fast');
-        });
-
         if (slideId == slidesCount) {
-            this.channel('slide').trigger('last');
+            t.channel('slide').trigger('last');
         } else if (slideId == 1) {
-            this.channel('slide').trigger('first');
+            t.channel('slide').trigger('first');
         } else {
-            this.channel('slide').trigger('change');
+            t.channel('slide').trigger('change');
         }
 
         // Запоминаем id презентации и слайда для панели управления
         // (в том числе чтобы уменьшить обращения к DOM)
-        blockPresentation.setId(presentationId);
-        blockPresentation.setSlideId(slideId);
-        blockPresentation.setSlidesCount(slidesCount);
+        bPresentation.setId(presentationId)
+                     .setSlideId(slideId)
+                     .setPrevSlideId(prevSlideId)
+                     .setSlidesCount(slidesCount);
+
+        t.delMod(t.findElem('item'), 'active');
+        t.setMod(t.findElem('item'), 'active', 'yes');
+    },
+
+    onElemSetMod: {
+        'item' : {
+            'active' : {
+                'yes' : function(el) {
+                    return this.getPresentation().getSlideId() == $(el).data().id;
+                },
+                '': function(el) {
+                    return this.getPresentation().getPrevSlideId() == $(el).data().id;
+                }
+            }
+        }
     },
 
     onSetMod : {

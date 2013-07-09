@@ -19,20 +19,32 @@ BEM.DOM.decl('b-presentation', {
         return this._slideId;
     },
 
+    getPrevSlideId: function() {
+        return this._prevSlideId;
+    },
+
     getSlidesCount: function() {
         return this._slidesCount;
     },
 
     setId: function(id) {
         this._id = id;
+        return this;
     },
 
     setSlideId: function(slideId) {
         this._slideId = slideId;
+        return this;
+    },
+
+    setPrevSlideId: function(prevSlideId) {
+        this._prevSlideId = prevSlideId;
+        return this;
     },
 
     setSlidesCount: function(slidesCount) {
         this._slidesCount = slidesCount;
+        return this;
     },
 
     canShowSlide: function(slideId) {

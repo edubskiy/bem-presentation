@@ -17,11 +17,6 @@
     margin-top: 10px;
 }
 
-.b-presentations__slides
-{
-    display: none;
-}
-
 .b-presentations__header {
     font-size: 18px;
     font-weight: bold;

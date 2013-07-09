@@ -26,6 +26,7 @@ block b-presentations {
                     },
                     {
                         elem: 'slides',
+                        mix: [{ elem: 'items', block: 'b-slides' }],
                         attrs: {
                             'data-type': 'slides'
                         },
@@ -40,7 +41,7 @@ block b-presentations {
             thisPresentation.slides.forEach(function(item) {
                 presentation.content[1].content.push({
                     elem: 'item',
-                    mix: [{ elem: item.id }],
+                    mix: [{ elem: 'item', block: 'b-slides' }],
                     attrs: {
                         'data-id': item.id
                     },

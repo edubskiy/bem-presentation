@@ -17,7 +17,7 @@
                     block: 'b-presentations',
                     presentations: [
                         {
-                            id: 'presentation-1',
+                            id: 1,
                             title: 'Kawasiki Method',
                             slides: [
                                 {
@@ -47,7 +47,7 @@
                             ]
                         },
                         {
-                            id: 'presentation-2',
+                            id: 2,
                             title: 'Steve Jobs Method',
                             slides: [
                                 {
@@ -73,7 +73,7 @@
                             ]
                         },
                         {
-                            id: 'presentation-3',
+                            id: 3,
                             title: 'Godin Method',
                             slides: [
                                 {

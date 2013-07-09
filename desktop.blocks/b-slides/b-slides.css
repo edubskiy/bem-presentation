@@ -7,3 +7,11 @@
 .b-slides_fullscreen_active {
     height: 94%;
 }
+
+.b-slides__item {
+    height: 0;
+}
+
+.b-slides__item_active_yes {
+    height: 100%;
+}
