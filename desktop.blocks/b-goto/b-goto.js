@@ -72,9 +72,11 @@ BEM.DOM.decl('b-goto', {
     onSetMod : {
 
         'js' : function() {
-            var t = this;
+            var t = this,
+                fullscreenFiredByClick = false; // prevent fullscreen event to be fired twice
 
             t.bindTo('fullscreen', 'click', function(e) {
+                fullscreenFiredByClick = true;
                 this.toggleFullScreenMode();
             })
 
@@ -87,12 +89,10 @@ BEM.DOM.decl('b-goto', {
             });
 
             t.bindToDoc('webkitfullscreenchange mozfullscreenchange fullscreenchange',function(){
-                var isFullScreen = document.fullScreen ||
-                    document.mozFullScreen ||
-                    document.webkitIsFullScreen;
-                if ( ! isFullScreen) {
+                if ( ! fullscreenFiredByClick) {
                     this.toggleFullScreenMode();
                 }
+                fullscreenFiredByClick = false;
             });
 
             t.channel('slide').on({
