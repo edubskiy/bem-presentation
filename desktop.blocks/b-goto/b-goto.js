@@ -53,24 +53,29 @@ BEM.DOM.decl('b-goto', {
         return this.findBlockOutside('b-presentation');
     },
 
+    toggleFullScreenMode: function() {
+        var t = this,
+            content = t.findBlockOutside('b-content'),
+            slides = content.findBlockInside('b-slides');
+
+        if (content.hasMod('fullscreen', 'active')) {
+            t.cancelFullscreen();
+        } else {
+            t.requestFullScreen(content.domElem[0]);
+        }
+
+        content.toggleMod('fullscreen', 'active');
+        slides.toggleMod('fullscreen', 'active');
+        t.toggleMod(t.elem('fullscreen'), 'fullscreen', 'active');
+    },
+
     onSetMod : {
 
         'js' : function() {
             var t = this;
 
             t.bindTo('fullscreen', 'click', function(e) {
-                var content = this.findBlockOutside('b-content'),
-                    slides = content.findBlockInside('b-slides');
-
-                if (content.hasMod('fullscreen', 'active')) {
-                    this.cancelFullscreen();
-                } else {
-                    this.requestFullScreen(content.domElem[0]);
-                }
-
-                content.toggleMod('fullscreen', 'active');
-                slides.toggleMod('fullscreen', 'active');
-                this.toggleMod(this.elem('fullscreen'), 'fullscreen', 'active');
+                this.toggleFullScreenMode();
             })
 
             // left and right keys navigation
@@ -78,6 +83,15 @@ BEM.DOM.decl('b-goto', {
                 if (e.keyCode == 13) {
                     var slideId = t.getCurrentSlideId()
                     t.goto(slideId);
+                }
+            });
+
+            t.bindToDoc('webkitfullscreenchange mozfullscreenchange fullscreenchange',function(){
+                var isFullScreen = document.fullScreen ||
+                    document.mozFullScreen ||
+                    document.webkitIsFullScreen;
+                if ( ! isFullScreen) {
+                    this.toggleFullScreenMode();
                 }
             });
 

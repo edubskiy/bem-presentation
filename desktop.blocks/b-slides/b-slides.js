@@ -48,7 +48,8 @@ BEM.DOM.decl('b-slides', {
         t.setMod(t.findElem('item'), 'active', 'yes');
     },
 
-    onElemSetMod: {
+    onElemSetMod : {
+
         'item' : {
             'active' : {
                 'yes' : function(el) {
@@ -59,6 +60,7 @@ BEM.DOM.decl('b-slides', {
                 }
             }
         }
+
     },
 
     onSetMod : {
