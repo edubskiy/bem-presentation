@@ -5,10 +5,28 @@
 
 BEM.DOM.decl('b-presentation', {
 
+    /**
+     * Presentation id
+     * @private
+     */
     _id: false,
 
+    /**
+     * Slide id
+     * @private
+     */
     _slideId: false,
 
+    /**
+     * Previous Slide Id
+     * @private
+     */
+    _prevSlideId: false,
+
+    /**
+     * Single Presentation's slides count
+     * @private
+     */
     _slidesCount: false,
 
     getId: function() {
@@ -109,10 +127,10 @@ BEM.DOM.decl('b-presentation', {
                         for (var i = 0, typedLength = typedSlides.length; i < typedLength; i++) {
                             slideId += String.fromCharCode(typedSlides[i])
                         }
+                        // clear typedSlides for next input
                         typedSlides = [];
                         slideId = parseInt(slideId);
                         if (!isNaN(slideId) && t.canShowSlide(slideId)) { // and can show slide
-                            // clear typedSlides for next input
                             t.channel('slide').trigger('goto', {
                                 slideId: slideId
                             });
